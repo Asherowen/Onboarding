@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es" class="h-full bg-slate-900 text-slate-100 scroll-smooth">
 <head>
@@ -77,46 +78,51 @@
 </head>
 <body class="h-full font-sans antialiased bg-brand-darkBg flex overflow-hidden">
 
-    <!-- PANTALLA DE INTRODUCCIÓN CON VIDEO CENTRADO Y GRANDE -->
-    <div id="intro-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-brand-darkBg px-4 py-8 overflow-y-auto">
-        <div class="max-w-4xl w-full flex flex-col items-center space-y-6 text-center">
+    <!-- IMAGEN 1: PANTALLA DE INTRODUCCIÓN OBLIGATORIA (CON VIDEO "bienvenido") -->
+    <div id="intro-screen" class="fixed inset-0 z-50 bg-brand-darkBg flex flex-col items-center justify-center p-4 overflow-y-auto">
+        <div class="max-w-2xl w-full text-center space-y-6">
+            <!-- Logo corporativo -->
+            <div class="flex justify-center">
+                <img src="logo.png" alt="Maxikash Logo" class="h-14 w-auto object-contain">
+            </div>
             
-            <!-- Logo e Identidad -->
             <div class="space-y-2">
-                <img src="logo.png" alt="Maxikash Logo" class="h-14 w-auto mx-auto object-contain mb-2">
-                <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-white">
-                    ¡Te damos la bienvenida a <span class="text-brand-green">Maxikash</span>!
+                <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+                    ¡Te damos la bienvenida a <span class="text-brand-green">Maxikash!</span>
                 </h1>
-                <p class="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto">
+                <p class="text-xs sm:text-sm text-slate-400 max-w-md mx-auto">
                     Por favor, visualiza este video institucional antes de ingresar a tu panel de onboarding.
                 </p>
             </div>
 
-            <!-- Reproductor de Video de Introducción Grande -->
-            <div class="w-full bg-slate-955 border-2 border-brand-green/40 rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(195,214,76,0.15)] bg-slate-950">
-                <div class="px-5 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
-                    <span class="text-xs font-black text-brand-green tracking-widest uppercase flex items-center gap-2">
-                        <span class="w-2 h-2 bg-brand-green rounded-full animate-ping"></span> Video de Introducción Institucional
+            <!-- Contenedor del video "bienvenido.mp4" -->
+            <div class="bg-slate-955 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl p-1.5 bg-gradient-to-b from-slate-900 to-slate-955">
+                <div class="px-4 py-2 bg-slate-900/60 border-b border-slate-800 text-left">
+                    <span class="text-[10px] font-black text-brand-green tracking-widest uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-film"></i> Video de Introducción Institucional
                     </span>
                 </div>
-                <div class="relative aspect-video bg-black">
-                    <video id="intro-video-player" class="w-full h-full" controls poster="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80">
-                        <!-- Ajustado el nombre del archivo de video aquí -->
+                <div class="relative aspect-video bg-black rounded-xl overflow-hidden">
+                    <!-- Sin autoplay, reproducción manual mediante click -->
+                    <video id="intro-video" class="w-full h-full" controls poster="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80">
                         <source src="bienvenido.mp4" type="video/mp4">
-                        Tu navegador no soporta el reproductor de video.
+                        Tu navegador no soporta el formato de video.
                     </video>
                 </div>
             </div>
 
-            <!-- Botón Ingresar -->
-            <button onclick="enterPortal()" class="group relative inline-flex items-center justify-center gap-3 bg-brand-blue hover:bg-brand-blue/90 text-white font-black text-sm px-10 py-4 rounded-xl shadow-2xl transition-all duration-300 border border-brand-blue/40 hover:border-brand-green/60 active:scale-95">
-                <i class="fa-solid fa-arrow-right-to-bracket text-brand-green group-hover:translate-x-1 transition-transform"></i>
-                INGRESAR AL PORTAL
-            </button>
+            <!-- Botón de Entrada -->
+            <div class="pt-2">
+                <button onclick="enterPortal()" class="bg-brand-blue hover:bg-brand-blue/90 text-white font-extrabold text-xs px-8 py-3.5 rounded-xl tracking-wider uppercase transition shadow-lg flex items-center justify-center gap-2 mx-auto border border-brand-blue/20 hover:border-brand-green/40">
+                    <i class="fa-solid fa-arrow-right-to-bracket text-brand-green"></i> Ingresar al Portal
+                </button>
+            </div>
         </div>
     </div>
 
 
+    <!-- CONTENIDO GENERAL DEL PORTAL (Oculto hasta dar clic en Ingresar) -->
+    
     <!-- MENÚ LATERAL IZQUIERDO DE NAVEGACIÓN -->
     <aside id="aside-sidebar" class="w-64 bg-slate-955 border-r border-slate-800 flex flex-col justify-between shrink-0 hidden lg:flex opacity-0 transition-opacity duration-500">
         <div>
@@ -164,10 +170,10 @@
     </aside>
 
     <!-- CONTENEDOR PRINCIPAL DERECHO -->
-    <div class="flex-grow flex flex-col h-full overflow-y-auto hidden" id="main-scroll-container">
+    <div class="flex-grow flex flex-col h-full overflow-y-auto hidden" id="main-portal-container">
         
-        <!-- BANNER DE BIENVENIDA INTEGRADO FIJO EN SCROLL -->
-        <div class="sticky top-0 z-40 bg-gradient-to-r from-brand-blueDeep to-slate-950 border-b border-slate-800 px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl backdrop-blur-md">
+        <!-- BANNER DE BIENVENIDA -->
+        <div class="sticky top-0 z-40 bg-gradient-to-r from-brand-blueDeep to-slate-955 border-b border-slate-800 px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl backdrop-blur-md">
             <div class="flex items-center space-x-4">
                 <div class="p-2.5 bg-brand-blue/10 rounded-xl border border-brand-blue/30 lg:hidden">
                     <img src="logo.png" alt="Maxikash" class="h-8 w-auto">
@@ -193,13 +199,13 @@
         <!-- CONTENIDO FLUIDO DEL PORTAL -->
         <main class="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10" id="inicio">
 
-            <!-- SECCIÓN: MENSAJE DE BIENVENIDA OFICIAL -->
-            <section class="bg-gradient-to-br from-brand-blueDeep/50 to-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+            <!-- IMAGEN 2: BIENVENIDA OFICIAL (CON VIDEO "bienvenida.mp4" E INSTRUCCIONES ABAJO) -->
+            <section class="bg-gradient-to-br from-brand-blueDeep/50 to-slate-955 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden space-y-6">
                 <div class="absolute -right-10 -top-10 w-40 h-40 bg-brand-green/5 rounded-full blur-3xl"></div>
+                
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    
-                    <!-- Texto de Bienvenida -->
-                    <div class="lg:col-span-7 space-y-4">
+                    <!-- Columna Izquierda: Texto de Bienvenida -->
+                    <div class="lg:col-span-6 space-y-4">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 bg-brand-blue/20 text-brand-green rounded-xl flex items-center justify-center text-2xl shrink-0 border border-brand-green/20 shadow-[0_0_15px_rgba(195,214,76,0.2)]">
                                 <i class="fa-solid fa-hand-sparkles"></i>
@@ -222,27 +228,54 @@
                         </div>
                     </div>
 
-                    <!-- SECCIÓN INFORMATIVA DEL LADO DERECHO -->
-                    <div class="lg:col-span-5 w-full bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                        <h4 class="text-xs font-black text-brand-green uppercase tracking-widest mb-3">Recomendaciones</h4>
-                        <ul class="text-xs text-slate-300 space-y-2.5">
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-play text-brand-blue mt-0.5"></i> Mira los 9 módulos de video completos.</li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-green mt-0.5"></i> Márcalos como completados para subir tu progreso.</li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-graduation-cap text-purple-400 mt-0.5"></i> Responde las evaluaciones finales para descargar tu certificado.</li>
-                        </ul>
+                    <!-- Columna Derecha: Video Institucional "bienvenida.mp4" sin reproducción automática -->
+                    <div class="lg:col-span-6 w-full">
+                        <div class="bg-slate-955 border border-slate-800 rounded-xl overflow-hidden shadow-2xl">
+                            <div class="px-4 py-2 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+                                <span class="text-[10px] font-black text-brand-green tracking-widest uppercase flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-play"></i> Video Institucional de Bienvenida
+                                </span>
+                            </div>
+                            <div class="relative aspect-video bg-black">
+                                <video id="welcome-video-player" class="w-full h-full" controls poster="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80">
+                                    <source src="bienvenida.mp4" type="video/mp4">
+                                    Tu navegador no soporta el video.
+                                </video>
+                            </div>
+                        </div>
                     </div>
+                </div>
 
+                <!-- Parte Inferior: Caja de Instrucciones alineada horizontalmente -->
+                <div class="bg-slate-900/60 p-4 sm:p-5 rounded-xl border border-slate-800/80 mt-2">
+                    <h4 class="text-xs font-black text-brand-green uppercase tracking-widest mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-list-check"></i> Instrucciones para completar tu Inducción
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-300">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-play text-brand-blue text-sm shrink-0 mt-0.5"></i>
+                            <span><strong>Paso 1:</strong> Visualiza el video institucional superior y los 9 módulos temáticos situados justo abajo.</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-brand-green text-sm shrink-0 mt-0.5"></i>
+                            <span><strong>Paso 2:</strong> Al concluir cada video, márcalo como completado para actualizar tu barra de progreso en tiempo real.</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-graduation-cap text-purple-400 text-sm shrink-0 mt-0.5"></i>
+                            <span><strong>Paso 3:</strong> Responde de forma correcta el Quiz final para desbloquear y descargar tu Diploma Digital corporativo.</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <!-- AREA DE TRABAJO: VIDEO Y MÓDULOS -->
+            <!-- IMAGEN 3: REPRODUCTOR DINÁMICO SIN REPRODUCCIÓN AUTOMÁTICA -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start" id="reproductor">
                 
                 <!-- REPRODUCTOR DE VIDEO PRINCIPAL (Izquierda) -->
                 <section class="lg:col-span-8 bg-slate-955 border border-slate-800 rounded-2xl overflow-hidden flex flex-col justify-between shadow-2xl luz-verde-activa">
                     <div class="px-6 py-4.5 bg-slate-900/60 border-b border-slate-800/80 flex items-center justify-between">
                         <div class="flex items-center space-x-2.5">
-                            <span class="w-3 h-3 bg-brand-green rounded-full animate-ping"></span>
+                            <span class="w-3 h-3 bg-brand-green rounded-full"></span>
                             <h2 id="now-playing-title" class="font-extrabold text-xs sm:text-sm tracking-wider text-slate-200 uppercase">MÓDULO 1: LEGACYAPP</h2>
                         </div>
                         <span class="text-[10px] bg-brand-blue/20 text-white border border-brand-blue/40 px-3 py-1 rounded-full font-bold uppercase tracking-wider">
@@ -251,6 +284,7 @@
                     </div>
 
                     <div class="relative aspect-video bg-black flex items-center justify-center">
+                        <!-- Removido cualquier tipo de trigger play automático para que dependa del click directo en los controles -->
                         <video id="main-video-player" class="w-full h-full" controls poster="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80">
                             <source id="video-source" src="legacyapp.mp4" type="video/mp4">
                         </video>
@@ -462,7 +496,7 @@
             <section class="space-y-8" id="identidad">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Misión -->
-                    <div class="bg-gradient-to-br from-brand-blueDeep to-slate-950 border border-brand-blue/30 rounded-2xl p-6 shadow-xl flex flex-col justify-between hover:border-brand-green/40 transition duration-300">
+                    <div class="bg-gradient-to-br from-brand-blueDeep to-slate-955 border border-brand-blue/30 rounded-2xl p-6 shadow-xl flex flex-col justify-between hover:border-brand-green/40 transition duration-300">
                         <div>
                             <div class="w-12 h-12 bg-brand-blue text-white rounded-xl flex items-center justify-center text-xl mb-4 border border-brand-green/20 shadow-[0_0_12px_rgba(0,79,211,0.4)]">
                                 <i class="fa-solid fa-bullseye text-brand-green"></i>
@@ -475,7 +509,7 @@
                     </div>
 
                     <!-- Visión -->
-                    <div class="bg-gradient-to-br from-brand-blueDeep to-slate-950 border border-brand-blue/30 rounded-2xl p-6 shadow-xl flex flex-col justify-between hover:border-brand-green/40 transition duration-300">
+                    <div class="bg-gradient-to-br from-brand-blueDeep to-slate-955 border border-brand-blue/30 rounded-2xl p-6 shadow-xl flex flex-col justify-between hover:border-brand-green/40 transition duration-300">
                         <div>
                             <div class="w-12 h-12 bg-brand-blue text-white rounded-xl flex items-center justify-center text-xl mb-4 border border-brand-green/20 shadow-[0_0_12px_rgba(0,79,211,0.4)]">
                                 <i class="fa-solid fa-eye text-brand-green"></i>
@@ -495,7 +529,7 @@
                             <h3 class="font-extrabold text-lg text-white flex items-center gap-2">
                                 <i class="fa-solid fa-heart text-brand-green"></i> Nuestros Valores
                             </h3>
-                            <p class="text-xs text-slate-400 mt-1">Los principios fundamentales alineados a nuestra cultura corporativa.</p>
+                            <p class="text-xs text-slate-400 mt-1">Los principios fundamentales alneados a nuestra cultura corporativa.</p>
                         </div>
                         <span class="text-[10px] font-bold text-brand-green bg-brand-green/10 px-3 py-1 rounded-full uppercase tracking-widest border border-brand-green/20">Identidad</span>
                     </div>
@@ -539,7 +573,7 @@
                 <div class="border-b border-slate-800/80 pb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                     <div>
                         <h3 class="font-extrabold text-lg text-white flex items-center gap-2">
-                            <i class="fa-solid fa-graduation-cap text-brand-blue animate-pulse"></i> Quiz de Inducción Corporativo
+                            <i class="fa-solid fa-graduation-cap text-brand-blue"></i> Quiz de Inducción Corporativo
                         </h3>
                         <p class="text-xs text-slate-400 mt-1">Evalúa lo aprendido en los videos y desbloquea tu Diploma Digital de Inducción de forma inmediata.</p>
                     </div>
@@ -637,7 +671,7 @@
                 </div>
 
                 <!-- Contenedor del Diploma Desbloqueable -->
-                <div id="diploma-box" class="hidden p-6 bg-gradient-to-br from-slate-950 to-slate-900 border-2 border-brand-green/50 rounded-2xl text-center space-y-6 max-w-2xl mx-auto shadow-2xl relative overflow-hidden">
+                <div id="diploma-box" class="hidden p-6 bg-gradient-to-br from-slate-955 to-slate-900 border-2 border-brand-green/50 rounded-2xl text-center space-y-6 max-w-2xl mx-auto shadow-2xl relative overflow-hidden">
                     <div class="absolute -right-16 -top-16 w-36 h-36 bg-brand-green/10 rounded-full blur-2xl"></div>
                     <div class="absolute -left-16 -bottom-16 w-36 h-36 bg-brand-blue/20 rounded-full blur-2xl"></div>
 
@@ -674,7 +708,7 @@
                 </div>
             </section>
 
-            <!-- NUEVA SECCIÓN ADICIONAL: QUIZ POR PUESTOS (ESPECÍFICO) -->
+            <!-- SECCIÓN: QUIZ POR PUESTOS (ESPECÍFICO) -->
             <section class="bg-slate-955 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
                 <div class="border-b border-slate-800/80 pb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                     <div>
@@ -951,10 +985,10 @@
 
                     <div class="space-y-2">
                         <p class="text-xs font-black text-slate-200">¿Qué sugerencia tienes para mejorar el proceso de bienvenida en Maxikash?</p>
-                        <textarea id="feedback-text" rows="3" placeholder="Escribe aquí tus comentarios, sugerencias or dudas..." class="w-full bg-slate-900 border border-slate-800 focus:border-brand-green rounded-xl py-3 px-4 text-xs text-slate-200 outline-none transition resize-none"></textarea>
+                        <textarea id="feedback-text" rows="3" placeholder="Escribe aquí tus comentarios, sugerencias o dudas..." class="w-full bg-slate-900 border border-slate-800 focus:border-brand-green rounded-xl py-3 px-4 text-xs text-slate-200 outline-none transition resize-none"></textarea>
                     </div>
 
-                    <button onclick="submitFeedback()" class="bg-brand-green hover:bg-brand-green/90 text-slate-950 font-black text-xs px-6 py-3 rounded-xl transition">
+                    <button onclick="submitFeedback()" class="bg-brand-green hover:bg-brand-green/90 text-slate-955 font-black text-xs px-6 py-3 rounded-xl transition">
                         Enviar Feedback
                     </button>
                     <span id="feedback-success-msg" class="text-xs text-brand-green font-bold hidden ml-4"><i class="fa-solid fa-circle-check"></i> ¡Muchas gracias! Recibimos tu retroalimentación correctamente.</span>
@@ -962,7 +996,7 @@
             </section>
         </main>
 
-        <!-- PIE DE PÁGINA PERSONALIZADO -->
+        <!-- PIE DE PÁGINA -->
         <footer class="border-t border-slate-900 bg-slate-955 py-8 mt-auto">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500 space-y-2">
                 <p class="font-semibold text-slate-400">Amigo Efectivo - Maxikash México</p>
@@ -977,7 +1011,7 @@
         </footer>
     </div>
 
-    <!-- LÓGICA JAVASCRIPT CORREGIDA PARA 9 MÓDULOS E INTRODUCCIÓN -->
+    <!-- LÓGICA JAVASCRIPT -->
     <script>
         const completedVideos = { 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false };
         let currentActiveId = 1;
@@ -987,100 +1021,57 @@
         const videoSource = document.getElementById('video-source');
         const nowPlayingTitle = document.getElementById('now-playing-title');
         const videoOverlay = document.getElementById('video-overlay');
-        const introVideoPlayer = document.getElementById('intro-video-player');
 
-        // Rutas y metadatos oficiales de los 9 videos
         const modulesData = {
-            1: {
-                title: "LegacyApp",
-                src: "legacyapp.mp4",
-                poster: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80"
-            },
-            2: {
-                title: "Asistencia",
-                src: "asistencia.mp4",
-                poster: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
-            },
-            3: {
-                title: "Pago de Nómina",
-                src: "nomine.mp4",
-                poster: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80"
-            },
-            4: {
-                title: "Bonos e Incentivos",
-                src: "bonos.mp4",
-                poster: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80"
-            },
-            5: {
-                title: "Recibos de Nómina",
-                src: "recibos_nomina.mp4",
-                poster: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80"
-            },
-            6: {
-                title: "Cambio de Cuenta",
-                src: "cambio_cuenta.mp4",
-                poster: "https://images.unsplash.com/photo-1563013544-824ae1d704d3?auto=format&fit=crop&w=1200&q=80"
-            },
-            7: {
-                title: "Incidencias Médicas",
-                src: "incidencias_medicas.mp4",
-                poster: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80"
-            },
-            8: {
-                title: "Nuestros Valores",
-                src: "Corporate_culture_video_showcasi…_202607151440_2.mp4",
-                poster: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80"
-            },
-            9: {
-                title: "Nuestra Cultura",
-                src: "nuestra_cultura.mp4",
-                poster: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
-            }
+            1: { title: "LegacyApp", src: "legacyapp.mp4", poster: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80" },
+            2: { title: "Asistencia", src: "asistencia.mp4", poster: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" },
+            3: { title: "Pago de Nómina", src: "nomine.mp4", poster: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80" },
+            4: { title: "Bonos e Incentivos", src: "bonos.mp4", poster: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80" },
+            5: { title: "Recibos de Nómina", src: "recibos_nomina.mp4", poster: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80" },
+            6: { title: "Cambio de Cuenta", src: "cambio_cuenta.mp4", poster: "https://images.unsplash.com/photo-1563013544-824ae1d704d3?auto=format&fit=crop&w=1200&q=80" },
+            7: { title: "Incidencias Médicas", src: "incidencias_medicas.mp4", poster: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" },
+            8: { title: "Nuestros Valores", src: "Corporate_culture_video_showcasi…_202607151440_2.mp4", poster: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80" },
+            9: { title: "Nuestra Cultura", src: "nuestra_cultura.mp4", poster: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" }
         };
 
-        // Función ejecutada por el botón "INGRESAR AL PORTAL"
+        // Función para interactuar y cerrar la pantalla inicial de la primera imagen
         function enterPortal() {
-            // Pausar el video de introducción si sigue reproduciéndose
-            if (introVideoPlayer) {
-                introVideoPlayer.pause();
-            }
-
-            // Ocultar la pantalla de introducción
-            document.getElementById('intro-screen').classList.add('hidden');
-
-            // Mostrar y activar elementos del layout principal
-            const sidebar = document.getElementById('aside-sidebar');
-            const mainContainer = document.getElementById('main-scroll-container');
-
-            sidebar.classList.remove('hidden');
-            mainContainer.classList.remove('hidden');
+            // Pausar el primer video "bienvenido.mp4" de introducción por si quedó reproduciéndose
+            document.getElementById('intro-video').pause();
             
-            // Forzar pequeña espera para disparar transición de opacidad fluidamente
-            setTimeout(() => {
-                sidebar.classList.remove('opacity-0');
-            }, 50);
-
-            // Cargar por defecto el primer video del panel
-            changeVideo(1);
+            // Ocultar pantalla de intro y mostrar el portal real
+            document.getElementById('intro-screen').classList.add('hidden');
+            
+            const sidebar = document.getElementById('aside-sidebar');
+            const mainContent = document.getElementById('main-portal-container');
+            
+            sidebar.classList.remove('hidden');
+            mainContent.classList.remove('hidden');
+            
+            // Efecto fluido de desvanecimiento
+            setTimeout(() => { sidebar.classList.remove('opacity-0'); }, 50);
         }
 
+        // Selección e intercambio de videos quincenales/temáticos de los módulos
         function changeVideo(id) {
             currentActiveId = id;
             const data = modulesData[id];
             if (!data) return;
 
-            // Quitar clase activa de todas las tarjetas (ahora son 9)
+            // Cambiar focos visuales en el listado de tarjetas de la derecha
             for (let i = 1; i <= 9; i++) {
                 document.getElementById(`module-card-${i}`).classList.remove('active-module-card');
             }
             document.getElementById(`module-card-${id}`).classList.add('active-module-card');
 
+            // Setear la data sin iniciar el video de forma automática (.play() removido intencionalmente)
             nowPlayingTitle.textContent = `MÓDULO ${id}: ${data.title.toUpperCase()}`;
             mainVideoPlayer.poster = data.poster;
             videoSource.src = data.src;
             mainVideoPlayer.load();
+            
+            // Resetear capas de completado viejo
             videoOverlay.classList.add('hidden');
-            mainVideoPlayer.play();
         }
 
         function markActiveAsComplete() {
@@ -1109,7 +1100,6 @@
         function toggleFaq(id) {
             const answer = document.getElementById(`faq-ans-${id}`);
             const icon = document.getElementById(`faq-icon-${id}`);
-            
             if (answer.classList.contains('hidden')) {
                 answer.classList.remove('hidden');
                 icon.classList.add('rotate-180');
@@ -1122,14 +1112,9 @@
         function filterGlosario() {
             const searchVal = document.getElementById('glosario-search').value.toLowerCase();
             const items = document.querySelectorAll('.glosario-item');
-
             items.forEach(item => {
                 const title = item.querySelector('.term-title').textContent.toLowerCase();
-                if (title.includes(searchVal)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+                item.style.display = title.includes(searchVal) ? 'block' : 'none';
             });
         }
 
@@ -1159,11 +1144,8 @@
             if (score >= 4) {
                 document.getElementById('quiz-container').classList.add('hidden');
                 document.getElementById('diploma-user-name').textContent = nameInput.toUpperCase();
-                
                 const today = new Date();
-                const formattedDate = today.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
-                document.getElementById('diploma-date').textContent = formattedDate;
-
+                document.getElementById('diploma-date').textContent = today.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
                 document.getElementById('diploma-box').classList.remove('hidden');
             } else {
                 alert(`Obtuviste ${score}/5 aciertos. Es necesario contar con al menos 4 respuestas correctas (80%) para obtener el diploma. ¡Inténtalo de nuevo!`);
@@ -1173,7 +1155,6 @@
         function printDiploma() {
             const name = document.getElementById('diploma-user-name').textContent;
             const date = document.getElementById('diploma-date').textContent;
-            
             const printWindow = window.open('', '_blank', 'width=850,height=600');
             printWindow.document.write(`
                 <html>
@@ -1183,41 +1164,18 @@
                     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
                     <style>
                         body { font-family: 'Inter', sans-serif; background-color: #090d16; color: #f1f5f9; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-                        @media print {
-                            body { background-color: #090d16 !important; }
-                            .no-print { display: none; }
-                        }
                     </style>
                 </head>
                 <body class="flex items-center justify-center min-h-screen p-8">
-                    <div class="p-12 bg-slate-955 border-4 border-[#c3d64c] rounded-3xl text-center space-y-6 max-w-2xl w-full shadow-2xl relative" style="border-color: #c3d64c;">
-                        <div class="text-[#c3d64c] text-6xl mb-2">🏆</div>
-                        <div class="space-y-2">
-                            <h4 class="text-3xl font-black text-white tracking-tight">DIPLOMA DE INDUCCIÓN</h4>
-                            <p class="text-xs text-[#c3d64c] font-bold tracking-widest uppercase">OTORGADO CON HONORES POR MAXIKASH MÉXICO</p>
-                        </div>
-                        <p class="text-xs text-slate-400 mt-4">Se otorga con orgullo el presente reconocimiento a:</p>
-                        <p class="text-2xl font-black text-white tracking-wide border-b border-slate-800 pb-3 max-w-md mx-auto">${name}</p>
-                        <p class="text-xs text-slate-300 max-w-sm mx-auto leading-relaxed">
-                            Por haber acreditado exitosamente la inducción corporativa sobre políticas de asistencia, nómina, cultura y normativas vigentes del ejercicio 2026.
-                        </p>
-                        <div class="pt-6 flex justify-center gap-12 items-center text-[10px] text-slate-500 font-bold">
-                            <div>
-                                <p class="text-slate-300">Amigo Efectivo S.A. de C.V.</p>
-                                <p class="text-[#004fd3]">Área de Recursos Humanos</p>
-                            </div>
-                            <div class="h-8 w-px bg-slate-800"></div>
-                            <div>
-                                <p>FECHA: <span class="text-slate-300">${date}</span></p>
-                                <p>ID: <span class="text-[#c3d64c]">MK-2026-OK</span></p>
-                            </div>
-                        </div>
+                    <div class="p-12 border-4 border-[#c3d64c] rounded-3xl text-center space-y-6 max-w-2xl w-full bg-slate-900" style="border-color: #c3d64c;">
+                        <h4 class="text-3xl font-black text-white">DIPLOMA DE INDUCCIÓN</h4>
+                        <p class="text-xs text-[#c3d64c] font-bold tracking-widest uppercase">MAXIKASH MÉXICO</p>
+                        <p class="text-2xl font-black text-white pb-3">${name}</p>
+                        <p class="text-xs text-slate-300 leading-relaxed">Acreditó exitosamente la inducción corporativa sobre políticas de asistencia, nómina y cultura 2026.</p>
+                        <p class="text-[10px] text-slate-500 font-bold">FECHA: ${date} | ID: MK-2026-OK</p>
                     </div>
                     <script>
-                        window.onload = function() {
-                            window.print();
-                            setTimeout(function() { window.close(); }, 500);
-                        };
+                        window.onload = function() { window.print(); setTimeout(function() { window.close(); }, 500); };
                     <\/script>
                 </body>
                 </html>
@@ -1229,16 +1187,13 @@
             selectedScore = score;
             const buttons = document.querySelectorAll('.score-star-btn');
             buttons.forEach((btn, idx) => {
-                if (idx < score) {
-                    btn.className = "score-star-btn w-10 h-10 rounded-lg bg-brand-green text-slate-950 font-black text-xs transition flex items-center justify-center";
-                } else {
-                    btn.className = "score-star-btn w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 text-slate-500 hover:border-brand-green transition flex items-center justify-center font-bold text-xs";
-                }
+                btn.className = idx < score 
+                    ? "score-star-btn w-10 h-10 rounded-lg bg-brand-green text-slate-955 font-black text-xs transition flex items-center justify-center"
+                    : "score-star-btn w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 text-slate-500 hover:border-brand-green transition flex items-center justify-center font-bold text-xs";
             });
         }
 
         function submitFeedback() {
-            const comment = document.getElementById('feedback-text').value.trim();
             if (selectedScore === 0) {
                 alert("Por favor, selecciona una calificación numérica del 1 al 5 antes de enviar.");
                 return;
@@ -1251,9 +1206,9 @@
             }, 4000);
         }
 
+        // Iniciar con la carga del primer módulo (sin reproducirlo automáticamente)
         window.onload = () => {
-            // No iniciamos cambio de video del panel principal en la carga inicial, 
-            // esto ahora se realiza automáticamente dentro de la función enterPortal()
+            changeVideo(1);
         };
     </script>
 </body>
