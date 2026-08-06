@@ -102,7 +102,6 @@
                     </span>
                 </div>
                 <div class="relative aspect-video bg-black rounded-xl overflow-hidden">
-                    <!-- Sin autoplay, reproducción manual mediante click -->
                     <video id="intro-video" class="w-full h-full" controls poster="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80">
                         <source src="bienvenido.mp4" type="video/mp4">
                         Tu navegador no soporta el formato de video.
@@ -120,7 +119,7 @@
     </div>
 
 
-    <!-- CONTENIDO GENERAL DEL PORTAL (Oculto hasta dar clic en Ingresar) -->
+    <!-- CONTENIDO GENERAL DEL PORTAL -->
     
     <!-- MENÚ LATERAL IZQUIERDO DE NAVEGACIÓN -->
     <aside id="aside-sidebar" class="w-64 bg-slate-955 border-r border-slate-800 flex flex-col justify-between shrink-0 hidden lg:flex opacity-0 transition-opacity duration-500">
@@ -131,36 +130,40 @@
             </div>
 
             <!-- Navegación -->
-            <nav class="p-4 space-y-2.5">
-                <a href="#inicio" class="flex items-center space-x-3 px-4 py-3 rounded-xl bg-brand-blue text-white font-semibold text-xs tracking-wider transition">
+            <nav class="p-4 space-y-2">
+                <a href="#inicio" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl bg-brand-blue text-white font-semibold text-xs tracking-wider transition">
                     <i class="fa-solid fa-house text-brand-green"></i>
                     <span>INICIO</span>
                 </a>
-                <a href="#reproductor" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
+                <a href="#reproductor" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
                     <i class="fa-solid fa-play-circle text-brand-blue"></i>
                     <span>REPRODUCTOR</span>
                 </a>
-                <a href="#roadmap" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
+                <a href="#roadmap" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
                     <i class="fa-solid fa-route text-brand-green"></i>
                     <span>RUTA DE INTEGRACIÓN</span>
                 </a>
-                <a href="#identidad" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
+                <a href="#identidad" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
                     <i class="fa-solid fa-seedling text-brand-green"></i>
                     <span>CULTURA Y VALORES</span>
                 </a>
-                <a href="#evaluacion" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
+                <a href="#evaluacion" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
                     <i class="fa-solid fa-graduation-cap text-brand-blue"></i>
                     <span>EVALUACIÓN</span>
                 </a>
-                <a href="#glosario-sec" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
+                <a href="#qa-capital-humano" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
+                    <i class="fa-solid fa-hospital-user text-brand-green"></i>
+                    <span>Q&A CAPITAL HUMANO</span>
+                </a>
+                <a href="#glosario-sec" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
                     <i class="fa-solid fa-book text-brand-green"></i>
                     <span>GLOSARIO</span>
                 </a>
-                <a href="#soporte" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
+                <a href="#soporte" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
                     <i class="fa-solid fa-id-card text-brand-blue"></i>
                     <span>SOPORTE</span>
                 </a>
-                <a href="#documentos" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
+                <a href="#documentos" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 font-semibold text-xs tracking-wider transition">
                     <i class="fa-solid fa-file-invoice-dollar text-brand-green"></i>
                     <span>DOCUMENTOS & FAQ</span>
                 </a>
@@ -198,12 +201,11 @@
         <!-- CONTENIDO FLUIDO DEL PORTAL -->
         <main class="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10" id="inicio">
 
-            <!-- IMAGEN 2: BIENVENIDA OFICIAL (CON VIDEO "bienvenida.mp4" E INSTRUCCIONES ABAJO) -->
+            <!-- IMAGEN 2: BIENVENIDA OFICIAL -->
             <section class="bg-gradient-to-br from-brand-blueDeep/50 to-slate-955 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden space-y-6">
                 <div class="absolute -right-10 -top-10 w-40 h-40 bg-brand-green/5 rounded-full blur-3xl"></div>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <!-- Columna Izquierda: Texto de Bienvenida -->
                     <div class="lg:col-span-6 space-y-4">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 bg-brand-blue/20 text-brand-green rounded-xl flex items-center justify-center text-2xl shrink-0 border border-brand-green/20 shadow-[0_0_15px_rgba(195,214,76,0.2)]">
@@ -227,7 +229,6 @@
                         </div>
                     </div>
 
-                    <!-- Columna Derecha: Video Institucional "bienvenida.mp4" sin reproducción automática -->
                     <div class="lg:col-span-6 w-full">
                         <div class="bg-slate-955 border border-slate-800 rounded-xl overflow-hidden shadow-2xl">
                             <div class="px-4 py-2 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
@@ -245,7 +246,6 @@
                     </div>
                 </div>
 
-                <!-- Parte Inferior: Caja de Instrucciones alineada horizontalmente -->
                 <div class="bg-slate-900/60 p-4 sm:p-5 rounded-xl border border-slate-800/80 mt-2">
                     <h4 class="text-xs font-black text-brand-green uppercase tracking-widest mb-3 flex items-center gap-2">
                         <i class="fa-solid fa-list-check"></i> Instrucciones para completar tu Inducción
@@ -267,10 +267,8 @@
                 </div>
             </section>
 
-            <!-- IMAGEN 3: REPRODUCTOR DINÁMICO SIN REPRODUCCIÓN AUTOMÁTICA -->
+            <!-- IMAGEN 3: REPRODUCTOR DINÁMICO -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start" id="reproductor">
-                
-                <!-- REPRODUCTOR DE VIDEO PRINCIPAL (Izquierda) -->
                 <section class="lg:col-span-8 bg-slate-955 border border-slate-800 rounded-2xl overflow-hidden flex flex-col justify-between shadow-2xl luz-verde-activa">
                     <div class="px-6 py-4.5 bg-slate-900/60 border-b border-slate-800/80 flex items-center justify-between">
                         <div class="flex items-center space-x-2.5">
@@ -283,7 +281,6 @@
                     </div>
 
                     <div class="relative aspect-video bg-black flex items-center justify-center">
-                        <!-- Removido cualquier tipo de trigger play automático para que dependa del click directo en los controles -->
                         <video id="main-video-player" class="w-full h-full" controls poster="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80">
                             <source id="video-source" src="legacyapp.mp4" type="video/mp4">
                         </video>
@@ -307,7 +304,6 @@
                     </div>
                 </section>
 
-                <!-- LISTADO DE MÓDULOS VERTICAL (Derecha) -->
                 <section class="lg:col-span-4 bg-slate-955 border border-slate-800 rounded-2xl p-4 shadow-2xl flex flex-col justify-between text-slate-100">
                     <div class="mb-3 pb-2 border-b border-slate-800/80 flex items-center justify-between">
                         <h3 class="font-extrabold text-xs text-slate-400 uppercase tracking-wider">Contenido del Onboarding</h3>
@@ -315,111 +311,82 @@
                     </div>
                     
                     <div class="space-y-2.5 max-h-[460px] overflow-y-auto pr-1">
-                        
-                        <!-- Módulo 1 -->
                         <div id="module-card-1" onclick="changeVideo(1)" class="active-module-card p-3 border border-slate-800 bg-slate-900/50 rounded-xl cursor-pointer hover:border-brand-green/40 transition flex items-center justify-between gap-3">
                             <div class="flex items-center space-x-3">
                                 <span class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-green flex items-center justify-center text-xs shrink-0 border border-brand-blue/10"><i class="fa-solid fa-play"></i></span>
-                                <div>
-                                    <h4 class="font-bold text-xs text-white leading-snug">LegacyApp</h4>
-                                </div>
+                                <div><h4 class="font-bold text-xs text-white leading-snug">LegacyApp</h4></div>
                             </div>
                             <span id="badge-video-1" class="text-[9px] font-black bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded shrink-0">Pendiente</span>
                         </div>
 
-                        <!-- Módulo 2 -->
                         <div id="module-card-2" onclick="changeVideo(2)" class="p-3 border border-slate-800 bg-slate-900/50 rounded-xl cursor-pointer hover:border-brand-green/40 transition flex items-center justify-between gap-3">
                             <div class="flex items-center space-x-3">
                                 <span class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-green flex items-center justify-center text-xs shrink-0 border border-brand-blue/10"><i class="fa-solid fa-mobile-screen-button"></i></span>
-                                <div>
-                                    <h4 class="font-bold text-xs text-white leading-snug">1. Asistencia</h4>
-                                </div>
+                                <div><h4 class="font-bold text-xs text-white leading-snug">1. Asistencia</h4></div>
                             </div>
                             <span id="badge-video-2" class="text-[9px] font-black bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded shrink-0">Pendiente</span>
                         </div>
 
-                        <!-- Módulo 3 -->
                         <div id="module-card-3" onclick="changeVideo(3)" class="p-3 border border-slate-800 bg-slate-900/50 rounded-xl cursor-pointer hover:border-brand-green/40 transition flex items-center justify-between gap-3">
                             <div class="flex items-center space-x-3">
                                 <span class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-green flex items-center justify-center text-xs shrink-0 border border-brand-blue/10"><i class="fa-solid fa-money-bill-transfer"></i></span>
-                                <div>
-                                    <h4 class="font-bold text-xs text-white leading-snug">2. Pago de Nómina</h4>
-                                </div>
+                                <div><h4 class="font-bold text-xs text-white leading-snug">2. Pago de Nómina</h4></div>
                             </div>
                             <span id="badge-video-3" class="text-[9px] font-black bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded shrink-0">Pendiente</span>
                         </div>
 
-                        <!-- Módulo 4 -->
                         <div id="module-card-4" onclick="changeVideo(4)" class="p-3 border border-slate-800 bg-slate-900/50 rounded-xl cursor-pointer hover:border-brand-green/40 transition flex items-center justify-between gap-3">
                             <div class="flex items-center space-x-3">
                                 <span class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-green flex items-center justify-center text-xs shrink-0 border border-brand-blue/10"><i class="fa-solid fa-chart-line"></i></span>
-                                <div>
-                                    <h4 class="font-bold text-xs text-white leading-snug">3. Bonos e Incentivos</h4>
-                                </div>
+                                <div><h4 class="font-bold text-xs text-white leading-snug">3. Bonos e Incentivos</h4></div>
                             </div>
                             <span id="badge-video-4" class="text-[9px] font-black bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded shrink-0">Pendiente</span>
                         </div>
 
-                        <!-- Módulo 5 -->
                         <div id="module-card-5" onclick="changeVideo(5)" class="p-3 border border-slate-800 bg-slate-900/50 rounded-xl cursor-pointer hover:border-brand-green/40 transition flex items-center justify-between gap-3">
                             <div class="flex items-center space-x-3">
                                 <span class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-green flex items-center justify-center text-xs shrink-0 border border-brand-blue/10"><i class="fa-solid fa-file-invoice-dollar"></i></span>
-                                <div>
-                                    <h4 class="font-bold text-xs text-white leading-snug">4. Recibos de Nómina</h4>
-                                </div>
+                                <div><h4 class="font-bold text-xs text-white leading-snug">4. Recibos de Nómina</h4></div>
                             </div>
                             <span id="badge-video-5" class="text-[9px] font-black bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded shrink-0">Pendiente</span>
                         </div>
 
-                        <!-- Módulo 6 -->
                         <div id="module-card-6" onclick="changeVideo(6)" class="p-3 border border-slate-800 bg-slate-900/50 rounded-xl cursor-pointer hover:border-brand-green/40 transition flex items-center justify-between gap-3">
                             <div class="flex items-center space-x-3">
                                 <span class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-green flex items-center justify-center text-xs shrink-0 border border-brand-blue/10"><i class="fa-solid fa-arrows-rotate"></i></span>
-                                <div>
-                                    <h4 class="font-bold text-xs text-white leading-snug">5. Cambio de Cuenta</h4>
-                                </div>
+                                <div><h4 class="font-bold text-xs text-white leading-snug">5. Cambio de Cuenta</h4></div>
                             </div>
                             <span id="badge-video-6" class="text-[9px] font-black bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded shrink-0">Pendiente</span>
                         </div>
 
-                        <!-- Módulo 7 -->
                         <div id="module-card-7" onclick="changeVideo(7)" class="p-3 border border-slate-800 bg-slate-900/50 rounded-xl cursor-pointer hover:border-brand-green/40 transition flex items-center justify-between gap-3">
                             <div class="flex items-center space-x-3">
                                 <span class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-green flex items-center justify-center text-xs shrink-0 border border-brand-blue/10"><i class="fa-solid fa-kit-medical"></i></span>
-                                <div>
-                                    <h4 class="font-bold text-xs text-white leading-snug">6. Incidencias Médicas</h4>
-                                </div>
+                                <div><h4 class="font-bold text-xs text-white leading-snug">6. Incidencias Médicas</h4></div>
                             </div>
                             <span id="badge-video-7" class="text-[9px] font-black bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded shrink-0">Pendiente</span>
                         </div>
 
-                        <!-- Módulo 8 -->
                         <div id="module-card-8" onclick="changeVideo(8)" class="p-3 border border-slate-800 bg-slate-900/50 rounded-xl cursor-pointer hover:border-brand-green/40 transition flex items-center justify-between gap-3">
                             <div class="flex items-center space-x-3">
                                 <span class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-green flex items-center justify-center text-xs shrink-0 border border-brand-blue/10"><i class="fa-solid fa-award"></i></span>
-                                <div>
-                                    <h4 class="font-bold text-xs text-white leading-snug">7. Nuestros Valores</h4>
-                                </div>
+                                <div><h4 class="font-bold text-xs text-white leading-snug">7. Nuestros Valores</h4></div>
                             </div>
                             <span id="badge-video-8" class="text-[9px] font-black bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded shrink-0">Pendiente</span>
                         </div>
 
-                        <!-- Módulo 9 -->
                         <div id="module-card-9" onclick="changeVideo(9)" class="p-3 border border-slate-800 bg-slate-900/50 rounded-xl cursor-pointer hover:border-brand-green/40 transition flex items-center justify-between gap-3">
                             <div class="flex items-center space-x-3">
                                 <span class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-green flex items-center justify-center text-xs shrink-0 border border-brand-blue/10"><i class="fa-solid fa-rocket"></i></span>
-                                <div>
-                                    <h4 class="font-bold text-xs text-white leading-snug">8. Nuestra Cultura</h4>
-                                </div>
+                                <div><h4 class="font-bold text-xs text-white leading-snug">8. Nuestra Cultura</h4></div>
                             </div>
                             <span id="badge-video-9" class="text-[9px] font-black bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded shrink-0">Pendiente</span>
                         </div>
-
                     </div>
                 </section>
             </div>
 
-            <!-- ROADMAP DE INTEGRACIÓN TEMPORAL (Ruta del Éxito) -->
+            <!-- ROADMAP DE INTEGRACIÓN -->
             <section class="bg-slate-955 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6" id="roadmap">
                 <div class="border-b border-slate-800/80 pb-4 flex items-center justify-between">
                     <div>
@@ -432,69 +399,38 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-                    <!-- Día 1 -->
                     <div class="p-5 bg-slate-900 border border-slate-800 rounded-xl relative hover:border-brand-green/30 transition">
                         <div class="absolute -top-3 left-4 bg-brand-green text-slate-950 font-black text-[10px] px-2.5 py-1 rounded-full uppercase">Día 1: Configuración</div>
                         <ul class="space-y-3 mt-4 text-xs text-slate-300">
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-brand-blue mt-0.5"></i>
-                                <span>Completa el portal de Onboarding (9 Videos y Quiz).</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-brand-blue mt-0.5"></i>
-                                <span>Configuración de cuentas y herramientas internas de trabajo.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-brand-blue mt-0.5"></i>
-                                <span>Presentación oficial con tu líder directo de área.</span>
-                            </li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-blue mt-0.5"></i><span>Completa el portal de Onboarding (9 Videos y Quiz).</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-blue mt-0.5"></i><span>Configuración de cuentas y herramientas internas de trabajo.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-blue mt-0.5"></i><span>Presentación oficial con tu líder directo de área.</span></li>
                         </ul>
                     </div>
 
-                    <!-- Semana 1 -->
                     <div class="p-5 bg-slate-900 border border-slate-800 rounded-xl relative hover:border-brand-green/30 transition">
                         <div class="absolute -top-3 left-4 bg-brand-blue text-white font-black text-[10px] px-2.5 py-1 rounded-full uppercase">Semana 1: Adaptación</div>
                         <ul class="space-y-3 mt-4 text-xs text-slate-300">
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-brand-blue mt-0.5"></i>
-                                <span>Sesiones de sombra (shadowing) con miembros del equipo.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-brand-blue mt-0.5"></i>
-                                <span>Comprensión de objetivos semanales y métricas individuales.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-brand-blue mt-0.5"></i>
-                                <span>Primera sesión de preguntas de control con tu supervisor.</span>
-                            </li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-blue mt-0.5"></i><span>Sesiones de sombra (shadowing) con miembros del equipo.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-blue mt-0.5"></i><span>Comprensión de objetivos semanales y métricas individuales.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-blue mt-0.5"></i><span>Primera sesión de preguntas de control con tu supervisor.</span></li>
                         </ul>
                     </div>
 
-                    <!-- Mes 1 -->
                     <div class="p-5 bg-slate-900 border border-slate-800 rounded-xl relative hover:border-brand-green/30 transition">
                         <div class="absolute -top-3 left-4 bg-purple-600 text-white font-black text-[10px] px-2.5 py-1 rounded-full uppercase">Mes 1: Autonomía</div>
                         <ul class="space-y-3 mt-4 text-xs text-slate-300">
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-brand-blue mt-0.5"></i>
-                                <span>Ejecución totalmente autónoma de tus funciones diarias.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-brand-blue mt-0.5"></i>
-                                <span>Evaluación de retroalimentación de los primeros 30 días.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-brand-blue mt-0.5"></i>
-                                <span>Alineación estratégica para los KPI del siguiente trimestre.</span>
-                            </li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-blue mt-0.5"></i><span>Ejecución totalmente autónoma de tus funciones diarias.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-blue mt-0.5"></i><span>Evaluación de retroalimentación de los primeros 30 días.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-blue mt-0.5"></i><span>Alineación estratégica para los KPI del siguiente trimestre.</span></li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- SECCIÓN: IDENTIDAD Y CULTURA CORPORATIVA -->
+            <!-- IDENTIDAD Y CULTURA CORPORATIVA -->
             <section class="space-y-8" id="identidad">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Misión -->
                     <div class="bg-gradient-to-br from-brand-blueDeep to-slate-955 border border-brand-blue/30 rounded-2xl p-6 shadow-xl flex flex-col justify-between hover:border-brand-green/40 transition duration-300">
                         <div>
                             <div class="w-12 h-12 bg-brand-blue text-white rounded-xl flex items-center justify-center text-xl mb-4 border border-brand-green/20 shadow-[0_0_12px_rgba(0,79,211,0.4)]">
@@ -507,7 +443,6 @@
                         </div>
                     </div>
 
-                    <!-- Visión -->
                     <div class="bg-gradient-to-br from-brand-blueDeep to-slate-955 border border-brand-blue/30 rounded-2xl p-6 shadow-xl flex flex-col justify-between hover:border-brand-green/40 transition duration-300">
                         <div>
                             <div class="w-12 h-12 bg-brand-blue text-white rounded-xl flex items-center justify-center text-xl mb-4 border border-brand-green/20 shadow-[0_0_12px_rgba(0,79,211,0.4)]">
@@ -521,20 +456,18 @@
                     </div>
                 </div>
 
-                <!-- Nuestros Valores -->
                 <div class="bg-slate-955 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
                     <div class="border-b border-slate-800/80 pb-4 flex items-center justify-between">
                         <div>
                             <h3 class="font-extrabold text-lg text-white flex items-center gap-2">
                                 <i class="fa-solid fa-heart text-brand-green"></i> Nuestros Valores
                             </h3>
-                            <p class="text-xs text-slate-400 mt-1">Los principios fundamentales alneados a nuestra cultura corporativa.</p>
+                            <p class="text-xs text-slate-400 mt-1">Los principios fundamentales alineados a nuestra cultura corporativa.</p>
                         </div>
                         <span class="text-[10px] font-bold text-brand-green bg-brand-green/10 px-3 py-1 rounded-full uppercase tracking-widest border border-brand-green/20">Identidad</span>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- Innovación -->
                         <div class="p-5 bg-slate-900 border border-slate-800 rounded-xl card-glow transition duration-300">
                             <span class="text-xs font-black text-white bg-brand-blue/40 px-2.5 py-1 rounded-md inline-block mb-3 border border-brand-blue/40">
                                 <i class="fa-solid fa-lightbulb text-brand-green mr-1.5"></i> Innovación
@@ -544,7 +477,6 @@
                             </p>
                         </div>
 
-                        <!-- Cercanía -->
                         <div class="p-5 bg-slate-900 border border-slate-800 rounded-xl card-glow transition duration-300">
                             <span class="text-xs font-black text-white bg-brand-blue/40 px-2.5 py-1 rounded-md inline-block mb-3 border border-brand-blue/40">
                                 <i class="fa-solid fa-users text-brand-green mr-1.5"></i> Cercanía
@@ -554,7 +486,6 @@
                             </p>
                         </div>
 
-                        <!-- Disciplina -->
                         <div class="p-5 bg-slate-900 border border-slate-800 rounded-xl card-glow transition duration-300">
                             <span class="text-xs font-black text-white bg-brand-blue/40 px-2.5 py-1 rounded-md inline-block mb-3 border border-brand-blue/40">
                                 <i class="fa-solid fa-scale-balanced text-brand-green mr-1.5"></i> Disciplina
@@ -580,7 +511,6 @@
                 </div>
 
                 <div id="quiz-container" class="space-y-6">
-                    <!-- Pregunta 1 -->
                     <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
                         <p class="text-xs font-black text-slate-200">1. ¿Qué comprobante médico es legalmente válido y aceptado para justificar una incapacidad en Maxikash?</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
@@ -595,7 +525,6 @@
                         </div>
                     </div>
 
-                    <!-- Pregunta 2 -->
                     <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
                         <p class="text-xs font-black text-slate-200">2. ¿A qué área se debe dirigir la solicitud formal en caso de requerir un Cambio de Cuenta de Nómina?</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
@@ -610,7 +539,6 @@
                         </div>
                     </div>
 
-                    <!-- Pregunta 3 -->
                     <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
                         <p class="text-xs font-black text-slate-200">3. ¿Cómo ejerce un colaborador de Maxikash sus Derechos ARCO para la protección de sus Datos Personales?</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
@@ -625,7 +553,6 @@
                         </div>
                     </div>
 
-                    <!-- Pregunta 4 -->
                     <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
                         <p class="text-xs font-black text-slate-200">4. ¿Cuáles son los tres valores fundamentales que guían a Maxikash?</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
@@ -640,7 +567,6 @@
                         </div>
                     </div>
 
-                    <!-- Pregunta 5 -->
                     <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
                         <p class="text-xs font-black text-slate-200">5. ¿Cómo se distribuyen tus recibos de nómina digitales?</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
@@ -655,7 +581,6 @@
                         </div>
                     </div>
 
-                    <!-- Campo del Nombre para el Diploma -->
                     <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
                         <p class="text-xs font-black text-slate-200">Por favor, escribe tu nombre completo para la generación del diploma:</p>
                         <input type="text" id="user-full-name" placeholder="Ej. Juan Pérez López" class="w-full bg-slate-950 border border-slate-800 focus:border-brand-green rounded-xl py-3 px-4 text-xs text-slate-200 outline-none transition">
@@ -669,7 +594,7 @@
                     </div>
                 </div>
 
-                <!-- Contenedor del Diploma Desbloqueable -->
+                <!-- Contenedor del Diploma -->
                 <div id="diploma-box" class="hidden p-6 bg-gradient-to-br from-slate-955 to-slate-900 border-2 border-brand-green/50 rounded-2xl text-center space-y-6 max-w-2xl mx-auto shadow-2xl relative overflow-hidden">
                     <div class="absolute -right-16 -top-16 w-36 h-36 bg-brand-green/10 rounded-full blur-2xl"></div>
                     <div class="absolute -left-16 -bottom-16 w-36 h-36 bg-brand-blue/20 rounded-full blur-2xl"></div>
@@ -682,7 +607,6 @@
                     </div>
 
                     <p class="text-xs text-slate-400">Se otorga con orgullo el presente reconocimiento a:</p>
-                    
                     <p id="diploma-user-name" class="text-xl font-extrabold text-white tracking-wide border-b border-slate-800 pb-2 max-w-md mx-auto"></p>
 
                     <p class="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed">
@@ -704,6 +628,153 @@
                     <button onclick="printDiploma()" class="bg-slate-900 hover:bg-slate-800 text-brand-green border border-brand-green/30 text-[10px] font-black px-4 py-2 rounded-lg uppercase transition">
                         <i class="fa-solid fa-print mr-1"></i> Imprimir o Guardar Diploma
                     </button>
+                </div>
+            </section>
+
+            <!-- NUEVA SECCIÓN ADICIONAL: Q&A CAPITAL HUMANO (VACACIONES, INCAPACIDADES Y RIESGO DE TRABAJO) -->
+            <section class="bg-slate-955 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6" id="qa-capital-humano">
+                <div class="border-b border-slate-800/80 pb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                    <div>
+                        <h3 class="font-extrabold text-lg text-white flex items-center gap-2">
+                            <i class="fa-solid fa-hospital-user text-brand-green"></i> Q&A - Trámites Operativos de Capital Humano
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-1">Guía paso a paso para la solicitud de vacaciones, gestión de incapacidades generales y protocolo en caso de riesgos de trabajo.</p>
+                    </div>
+                    <span class="text-[10px] font-bold text-brand-green bg-brand-green/10 px-3 py-1 rounded-full uppercase tracking-widest border border-brand-green/20">Protocolos Oficiales</span>
+                </div>
+
+                <div class="space-y-6">
+                    
+                    <!-- 1. CÓMO SOLICITAR MIS VACACIONES -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-green flex items-center justify-center text-sm border border-brand-blue/30"><i class="fa-solid fa-umbrella-beach"></i></span>
+                            <h4 class="font-bold text-sm text-white">1. ¿Cómo puedo solicitar mis vacaciones?</h4>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Tus vacaciones deben ser gestionadas mediante alguno de los siguientes <strong>3 canales oficiales</strong>:
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                            <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-2">
+                                <span class="text-brand-green font-bold block"><i class="fa-solid fa-pen-to-square mr-1"></i> Opción A: Formulario</span>
+                                <p class="text-slate-400 text-[11px]">Diligencia el formulario oficial disponible en línea:</p>
+                                <a href="https://forms.gle/4nZgE1dRHNqQaHQc7" target="_blank" class="inline-flex items-center gap-1.5 text-brand-blue hover:text-brand-green font-bold text-[11px] underline transition">
+                                    Abrir Formulario <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                                </a>
+                            </div>
+
+                            <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-2">
+                                <span class="text-brand-green font-bold block"><i class="fa-solid fa-envelope mr-1"></i> Opción B: Correo Electrónico</span>
+                                <p class="text-slate-400 text-[11px]">Envía la solicitud a tu <strong>Jefe Directo</strong> con copia obligatoria a:</p>
+                                <a href="mailto:capital.humano@maxikash.mx" class="text-slate-200 font-mono text-[10px] bg-slate-900 px-2 py-0.5 rounded border border-slate-800 block">capital.humano@maxikash.mx</a>
+                            </div>
+
+                            <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-2">
+                                <span class="text-brand-green font-bold block"><i class="fa-solid fa-laptop-code mr-1"></i> Opción C: Módulo Sparta</span>
+                                <p class="text-slate-400 text-[11px]">Ingresa a la plataforma e inicia el trámite dentro del módulo Sparta.</p>
+                            </div>
+                        </div>
+
+                        <!-- Nota sobre datos requeridos -->
+                        <div class="p-3 bg-brand-blue/10 border border-brand-blue/30 rounded-lg text-xs text-slate-300 flex items-start gap-3">
+                            <i class="fa-solid fa-circle-info text-brand-green text-sm mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-white block">Datos requeridos para solicitud vía Correo o Sparta:</span>
+                                <span class="text-[11px] text-slate-400">1. Nombre completo | 2. Periodo exacto solicitado | 3. Día de descanso | 4. Nombre de Jefe directo | 5. Motivo.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. INCAPACIDAD POR ENFERMEDAD GENERAL -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-green flex items-center justify-center text-sm border border-brand-blue/30"><i class="fa-solid fa-notes-medical"></i></span>
+                            <h4 class="font-bold text-sm text-white">2. ¿Qué hacer en caso de Incapacidad por Enfermedad General?</h4>
+                        </div>
+                        
+                        <div class="space-y-3 text-xs text-slate-300">
+                            <div class="flex items-start gap-3 bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                <span class="w-5 h-5 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-[10px] shrink-0">1</span>
+                                <p><strong>Atención Médica:</strong> El colaborador deberá acudir a su clínica correspondiente del IMSS para su valoración médica.</p>
+                            </div>
+
+                            <div class="flex items-start gap-3 bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                <span class="w-5 h-5 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-[10px] shrink-0">2</span>
+                                <div class="space-y-2">
+                                    <p><strong>Entrega del documento emitido por el IMSS:</strong></p>
+                                    <ul class="list-disc pl-4 space-y-1 text-slate-400 text-[11px]">
+                                        <li><strong>Personal CDMX y Edo. Méx (Zona VDM):</strong> Entregar el documento físico en Corporativo o directamente a su jefe inmediato.</li>
+                                        <li><strong>Personal Foráneo:</strong> Solicitar guía de envío prepagada al área de Capital Humano para mandar el documento por paquetería.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg text-xs text-amber-300 flex items-center gap-2">
+                            <i class="fa-solid fa-triangle-exclamation text-amber-400"></i>
+                            <span><strong>NOTA OBLIGATORIA:</strong> Únicamente se recibirán y procesarán las incapacidades oficiales que especifiquen en la parte superior <strong>"Copia Patrón"</strong>.</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. INCAPACIDAD POR RIESGO DE TRABAJO -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center text-sm border border-red-500/30"><i class="fa-solid fa-kit-medical"></i></span>
+                            <h4 class="font-bold text-sm text-white">3. Protocolo en caso de Riesgo de Trabajo (Accidente o Enfermedad de Trabajo)</h4>
+                        </div>
+
+                        <!-- Flujo por pasos numerados -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                            <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-1">
+                                <span class="text-brand-green font-bold text-[11px] uppercase block">1. Notificación Inmediata</span>
+                                <p class="text-slate-400 text-[10px]">Notificar dentro de las primeras <strong>24 horas</strong> a Supervisor, Capital Humano y Gestión Patronal.</p>
+                            </div>
+
+                            <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-1">
+                                <span class="text-brand-green font-bold text-[11px] uppercase block">2. Atención Médica IMSS</span>
+                                <p class="text-slate-400 text-[10px]">Acudir de inmediato a la Unidad de Medicina Familiar (UMF) del IMSS más cercana.</p>
+                            </div>
+
+                            <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-1">
+                                <span class="text-brand-green font-bold text-[11px] uppercase block">3. Entrega de Incapacidades</span>
+                                <p class="text-slate-400 text-[10px]">Entregar <strong>ORIGINAL (Copia Patrón)</strong> de las incapacidades emitidas.</p>
+                            </div>
+
+                            <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-1">
+                                <span class="text-brand-green font-bold text-[11px] uppercase block">4. Trámite Formato ST-7</span>
+                                <p class="text-slate-400 text-[10px]">Reunir formato ST-7 (Aviso de Accidente), Nota Médica y expediente del IMSS.</p>
+                            </div>
+                        </div>
+
+                        <!-- Diferenciador por Zona y Contacto directo -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-2">
+                            <div class="p-3.5 bg-slate-950 border border-slate-800 rounded-lg space-y-2">
+                                <span class="font-bold text-brand-blue flex items-center gap-2"><i class="fa-solid fa-location-dot"></i> Entrega para Zona VDM (CDMX / Edo. Mex)</span>
+                                <p class="text-slate-400 text-[11px]">Entregar los documentos físicos a tu jefe inmediato para que realice la entrega formal en Corporativo.</p>
+                            </div>
+
+                            <div class="p-3.5 bg-slate-950 border border-slate-800 rounded-lg space-y-2">
+                                <span class="font-bold text-purple-400 flex items-center gap-2"><i class="fa-solid fa-box-archive"></i> Entrega para Personal Foráneo</span>
+                                <p class="text-slate-400 text-[11px]">Enviar por paquetería todos los documentos emitidos por el IMSS. (Corporativo proporcionará la guía pagada).</p>
+                            </div>
+                        </div>
+
+                        <!-- Banner de Contacto directo para Riesgo de Trabajo -->
+                        <div class="p-4 bg-gradient-to-r from-red-950/40 to-slate-950 border border-red-500/30 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-phone-volume text-red-400 text-lg"></i>
+                                <div>
+                                    <span class="font-black text-white block">Contacto Inmediato para Recursos Humanos</span>
+                                    <span class="text-[11px] text-slate-400">Envía tus evidencias o comprobante en cuanto se presente el incidente:</span>
+                                </div>
+                            </div>
+                            <a href="https://wa.me/525657707341" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-4 py-2 rounded-lg flex items-center gap-2 text-xs transition shrink-0">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> 56 5770 7341
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
@@ -740,7 +811,6 @@
                         </h3>
                         <p class="text-xs text-slate-400 mt-1">Busca y domina el lenguaje operativo, legal y financiero que usamos en el día a día.</p>
                     </div>
-                    <!-- Buscador -->
                     <div class="relative w-full sm:w-64">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500">
                             <i class="fa-solid fa-magnifying-glass text-xs"></i>
@@ -792,8 +862,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-                    
-                    <!-- RRHH Corporativo -->
                     <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-brand-blue/60 transition">
                         <div>
                             <span class="text-[9px] font-black text-brand-green uppercase bg-brand-green/10 px-2 py-0.5 rounded border border-brand-green/20">RRHH Corporativo</span>
@@ -804,7 +872,6 @@
                         </a>
                     </div>
 
-                    <!-- RRHH Cobranza -->
                     <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-brand-blue/60 transition">
                         <div>
                             <span class="text-[9px] font-black text-brand-green uppercase bg-brand-green/10 px-2 py-0.5 rounded border border-brand-green/20">RRHH Cobranza</span>
@@ -815,7 +882,6 @@
                         </a>
                     </div>
 
-                    <!-- Subdirección RRHH -->
                     <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-brand-blue/60 transition">
                         <div>
                             <span class="text-[9px] font-black text-purple-400 uppercase bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">Subdirección RRHH</span>
@@ -826,7 +892,6 @@
                         </a>
                     </div>
 
-                    <!-- Nóminas -->
                     <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-brand-blue/60 transition">
                         <div>
                             <span class="text-[9px] font-black text-amber-400 uppercase bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">Nóminas</span>
@@ -837,7 +902,6 @@
                         </a>
                     </div>
 
-                    <!-- Área Legal -->
                     <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-brand-blue/60 transition">
                         <div>
                             <span class="text-[9px] font-black text-red-400 uppercase bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20">Área Legal</span>
@@ -847,14 +911,13 @@
                             <i class="fa-solid fa-envelope text-xs"></i> Enviar Correo
                         </a>
                     </div>
-
                 </div>
             </section>
 
             <!-- SECCIÓN DE DESCARGAS Y FAQ -->
             <section class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="documentos">
                 
-                <!-- Descargas de Documentación Oficial -->
+                <!-- Descargas -->
                 <div class="bg-slate-955 border border-slate-800 rounded-2xl p-6 shadow-2xl flex flex-col justify-between">
                     <div>
                         <h3 class="font-extrabold text-base text-white mb-2 flex items-center gap-2">
@@ -899,7 +962,7 @@
                     </div>
                 </div>
 
-                <!-- Preguntas Frecuentes Interactivas -->
+                <!-- Preguntas Frecuentes -->
                 <div class="bg-slate-955 border border-slate-800 rounded-2xl p-6 shadow-2xl">
                     <h3 class="font-extrabold text-base text-white mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-circle-question text-brand-green"></i> Preguntas Frecuentes
@@ -1033,12 +1096,8 @@
             9: { title: "Nuestra Cultura", src: "nuestra_cultura.mp4", poster: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" }
         };
 
-        // Función para interactuar y cerrar la pantalla inicial de la primera imagen
         function enterPortal() {
-            // Pausar el primer video "bienvenido.mp4" de introducción por si quedó reproduciéndose
             document.getElementById('intro-video').pause();
-            
-            // Ocultar pantalla de intro y mostrar el portal real
             document.getElementById('intro-screen').classList.add('hidden');
             
             const sidebar = document.getElementById('aside-sidebar');
@@ -1047,29 +1106,24 @@
             sidebar.classList.remove('hidden');
             mainContent.classList.remove('hidden');
             
-            // Efecto fluido de desvanecimiento
             setTimeout(() => { sidebar.classList.remove('opacity-0'); }, 50);
         }
 
-        // Selección e intercambio de videos quincenales/temáticos de los módulos
         function changeVideo(id) {
             currentActiveId = id;
             const data = modulesData[id];
             if (!data) return;
 
-            // Cambiar focos visuales en el listado de tarjetas de la derecha
             for (let i = 1; i <= 9; i++) {
                 document.getElementById(`module-card-${i}`).classList.remove('active-module-card');
             }
             document.getElementById(`module-card-${id}`).classList.add('active-module-card');
 
-            // Setear la data sin iniciar el video de forma automática (.play() removido intencionalmente)
             nowPlayingTitle.textContent = `MÓDULO ${id}: ${data.title.toUpperCase()}`;
             mainVideoPlayer.poster = data.poster;
             videoSource.src = data.src;
             mainVideoPlayer.load();
             
-            // Resetear capas de completado viejo
             videoOverlay.classList.add('hidden');
         }
 
@@ -1205,7 +1259,6 @@
             }, 4000);
         }
 
-        // Iniciar con la carga del primer módulo (sin reproducirlo automáticamente)
         window.onload = () => {
             changeVideo(1);
         };
